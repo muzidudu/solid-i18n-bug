@@ -15,10 +15,10 @@ import {
 import "./root.css";
 import { I18nProvider, useI18n } from '@i18n-pro/solid'
 import i18nState from './i18n'
-export default function Root() {
+
+function Root() {
   const { t } = useI18n()
   return (
-    <I18nProvider {...i18nState}>
     <Html lang="en">
       <Head>
         <Title>SolidStart - Bare</Title>
@@ -39,6 +39,13 @@ export default function Root() {
         <Scripts />
       </Body>
     </Html>
-    </I18nProvider>
   );
+}
+
+export default function (){
+  return (
+    <I18nProvider {...i18nState}>
+      <Root />
+    </I18nProvider>
+  )
 }
